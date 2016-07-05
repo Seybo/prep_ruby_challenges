@@ -50,10 +50,13 @@ end
 
 def is_prime?(number)
 
-  if number < 0 || number.class != Fixnum
-    puts "number must be > 0 and be integer"
+  if number < 2 || number.class != Fixnum
+    puts "number must be > 2 and be integer"
     return FALSE
   end
+
+  # update
+  return true if number == 3 || number == 5 || number == 7 
   
   return false if number % 2 == 0
   return false if number % 3 == 0
@@ -61,7 +64,7 @@ def is_prime?(number)
   return false if number % 7 == 0
   # according to the benchmarks this is enough :)
 
-  (9..Math.sqrt(number).to_i).step(2) do |n|
+  (11..Math.sqrt(number).to_i).step(2) do |n|
     return false if number % n == 0
   end
 
